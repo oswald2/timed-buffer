@@ -1,5 +1,9 @@
 
-{-# LANGUAGE GHC2021
+{-# LANGUAGE 
+    BangPatterns
+    , OverloadedStrings 
+    , DeriveGeneric 
+    , GeneralizedNewtypeDeriving
     , DerivingStrategies
     , DeriveAnyClass
 #-}
