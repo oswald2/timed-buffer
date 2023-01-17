@@ -68,10 +68,6 @@ writeTimedBufferSTM buf value = do
 
 readTimedBuffer :: (MonadIO m) => Timeout -> TimedBuffer a -> m [a]
 readTimedBuffer (Timeout timeOut) buf = do
-    n <- readTVarIO (idx buf)
-    when (n == 0) $ atomically $ do
-        n1 <- readTVar (idx buf)
-        if (n1 == 0) then retrySTM else return ()
     delay <- liftIO $ registerDelay timeOut
     atomically $ do
         readTimedBufferSTM buf <|> flushTimed delay

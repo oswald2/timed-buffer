@@ -67,6 +67,7 @@ library
         , aeson
         , stm
         , rio
+        , pretty-show
 
     -- Directories containing source files.
     hs-source-dirs:   src
@@ -93,4 +94,7 @@ test-suite timed-buffer-test
         base 
         , rio
         , timed-buffer
+        , conduit
+        , text
+        , pretty-show
 
